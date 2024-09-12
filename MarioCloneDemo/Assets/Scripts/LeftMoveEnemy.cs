@@ -5,6 +5,7 @@ using UnityEngine;
 public class LeftMoveEnemy : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
+    [SerializeField] float damage;
     private int movePoint = -1;
 
     // Start is called before the first frame update
@@ -25,6 +26,7 @@ public class LeftMoveEnemy : MonoBehaviour
         {
             //Destroy(collision.gameObject);
             Debug.Log("You been hit");
+            //collision.gameObject.GetComponent<HealthRemaining>(damage);
         }
         if (collision.gameObject.tag == "wall")
         {
