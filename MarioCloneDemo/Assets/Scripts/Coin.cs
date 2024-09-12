@@ -20,7 +20,11 @@ public class Coin : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        UIManager.Instance.UpdateCoinText(coinValue);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            UIManager.Instance.UpdateCoinText(coinValue);
+            Destroy(gameObject);
+        }
+        
     }
 }
