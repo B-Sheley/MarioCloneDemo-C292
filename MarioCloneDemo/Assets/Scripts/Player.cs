@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float moveSpeed;
     [SerializeField] float jumpForce;
+    [SerializeField] int health;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update
@@ -31,5 +33,13 @@ public class Player : MonoBehaviour
     private void Jump() 
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    private void HealthRemaining(int damage)
+    {
+        health -= damage;
+        if (health <= 0) { 
+            Destroy(rb);
+        }
     }
 }

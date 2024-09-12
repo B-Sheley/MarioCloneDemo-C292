@@ -7,7 +7,11 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     [SerializeField] TextMeshProUGUI coinText;
+    [SerializeField] TextMeshProUGUI healthText;
+    private GameObject player;
     private int coinsCollected = 0;
+    private int healthRemaining = 10;
+
 
     public void Awake() 
     {
@@ -23,17 +27,23 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindWithTag("player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        healthText.text = "Health: " + player.GetComponent<health>();
     }
 
     public void UpdateCoinText(int coin) {
         coinsCollected += coin;
         coinText.text = "Coins: " + coinsCollected;
+    }
+
+    public void UpdateHealth(int damage)
+    {
+        healthRemaining -= damage;
+        healthText.text = "Health: " + healthRemaining;
     }
 }
