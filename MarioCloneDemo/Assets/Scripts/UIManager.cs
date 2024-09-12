@@ -9,7 +9,6 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
     [SerializeField] TextMeshProUGUI coinText;
     [SerializeField] TextMeshProUGUI healthText;
-    private GameObject player;
     private int coinsCollected = 0;
     private int healthRemaining = 10;
 
@@ -28,7 +27,7 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindWithTag("player");
+        
     }
 
     // Update is called once per frame
